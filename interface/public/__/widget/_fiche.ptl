@@ -1,0 +1,27 @@
+<div class="boutons">
+<!-- IF $doc -->
+<a class="navigation cv" href="{$doc_ref|annuaire_docUrl}"><span>cv</span></a>
+<!-- ELSE -->
+<span class="cvoff navigation"></span>
+<!-- END:IF -->
+<a class="navigation profil" href="{$fiche_ref|annuaire_ficheUrl}"><span>profil</span></a>
+</div>
+<div class="fiche">
+	<div class="photo"><img src="{$photo_ref|annuaire_photoUrl:64}" height="64"></div>
+<div class="resumes">
+	<div class="nom">
+	{$nom|annuaire_ficheLink:$fiche_ref}
+	<!-- IF $groupe --><a href="{~}?q=promo:{$groupe}" class="group">{$groupe}</a><!-- END:IF --></div>
+	<div class="resumeprofil">
+	{$extrait|allowhtml}
+	</div>
+	<!-- IF $doc -->
+	<div class="resumecv">
+		<!-- SET $ext -->{$doc_ref|replace:'.+\.(doc|pdf)\b.*':'$1'}<!-- END:SET -->
+		<!-- IF $ext == $doc_ref --><!-- SET $ext -->bin<!-- END:SET --><!-- END:IF -->
+		<a href="{$doc_ref|annuaire_docUrl}" style="white-space:nowrap"><img src="{~}img/{$ext}.gif"></a>
+		{$doc|allowhtml}
+	</div>
+	<!-- END:IF -->
+</div>
+</div>
