@@ -96,13 +96,16 @@ class extends self
 		{
 			$fiche_ref = $row->contact_id;
 
+			$row->photo_token = explode('.', $row->photo_token) + array(1 => 'jpg', 'jpg');
+			$row->cv_token    = explode('.', $row->cv_token   ) + array(1 => 'pdf', 'pdf');
+
 			$fiche = (object) array(
 				'nom'       => $row->nom,
 				'groupe'    => $row->promo,
 				'position'  => '',
 				'doc'       => $row->cv_text,
-				'photo_ref' => $row->login ? ($row->photo_token . '/' . $row->login . '.jpg') : '',
-				'doc_ref'   => $row->login ? ($row->cv_token    . '/' . $row->login . '.pdf') : '',
+				'photo_ref' => $row->login ? ($row->photo_token[0] . '/' . $row->login . '.' . $row->photo_token[1]) : '',
+				'doc_ref'   => $row->login ? ($row->cv_token[0]    . '/' . $row->login . '.' . $row->cv_token[1]   ) : '',
 				'mtime'     => $row->contact_modified,
 			);
 
