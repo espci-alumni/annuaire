@@ -1,13 +1,13 @@
 <?php
 
-class extends self
+class agent extends self
 {
-	function control()
-	{
-		if (!s::get('acces'))
-		{
-			s::flash('referer', p::__URI__());
-			p::redirect($CONFIG['tribes.baseUrl'] . 'login');
-		}
-	}
+    function control()
+    {
+        if (!SESSION::get('acces'))
+        {
+            SESSION::flash('referer', patchwork::__URI__());
+            patchwork::redirect($CONFIG['tribes.baseUrl'] . 'login');
+        }
+    }
 }

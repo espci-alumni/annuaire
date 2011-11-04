@@ -1,6 +1,6 @@
 <?php
 
-class extends agent
+class agent_index extends agent
 {
     public $get = array(
         'q', // requete pour le moteur de recherche
@@ -24,7 +24,7 @@ class extends agent
 
     function compose($o)
     {
-        if ('' !== (string) $this->get->q || $this->get->p) p::setGroup('private');
+        if ('' !== (string) $this->get->q || $this->get->p) patchwork::setGroup('private');
         else $this->watch[] = 'fiche/0';
 
         // Calcule le nombre total de fiches accessibles
@@ -122,7 +122,7 @@ class extends agent
 
         $subset = '';
         if ($o->fiches->hasQuery) $subset = 'searchtmp';
-        else if ($this->subset  ) $subset = 'subsettmp';
+        else if ($this->subset) $subset = 'subsettmp';
 
         // Nombre de fiches à lier aux tags
         $nb = isset($o->nb_resultats) ? $o->nb_resultats : 0;
