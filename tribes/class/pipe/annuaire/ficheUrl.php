@@ -6,6 +6,6 @@ class pipe_annuaire_ficheUrl extends self
     {
         parent::__init();
 
-        self::$preRef = $CONFIG['tribes.baseUrl'] . 'user/';
+        self::$preRef = $CONFIG['tribes.baseUrl'] . 'fr/user/';
     }
 }

@@ -6,6 +6,6 @@ class pipe_annuaire_photoUrl extends self
     {
         parent::__init();
 
-        self::$preRef = $CONFIG['tribes.baseUrl'] . 'user/photo/';
+        self::$preRef = $CONFIG['tribes.baseUrl'] . 'fr/user/photo/';
     }
 }
